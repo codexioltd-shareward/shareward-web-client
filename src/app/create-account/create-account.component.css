@@ -1,0 +1,14 @@
+form {
+  width: 60%;
+  margin: 10% auto;
+  text-align: center;
+}
+
+h4, button, p {
+  text-align: center;
+}
+
+button {
+  margin-top: 2em;
+  background-color: #3F51B5;
+}

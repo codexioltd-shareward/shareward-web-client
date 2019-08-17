@@ -1,0 +1,50 @@
+<ul id="slide-out" class="side-nav fixed z-depth-2" *ngIf="isAuthenticated">
+  <li class="center no-padding">
+    <div class="indigo darken-2 white-text" style="height: 180px;">
+      <div class="row">
+
+        <p style="margin-top: -13%;">
+          Usernameee
+        </p>
+      </div>
+    </div>
+  </li>
+
+  <ul class="collapsible" data-collapsible="accordion">
+    <li id="dash_categories">
+      <div id="dash_categories_header" class="collapsible-header waves-effect"><b>My Accounts</b></div>
+    </li>
+
+    <li id="dash_brands">
+      <div id="dash_brands_header" class="collapsible-header waves-effect"><b>Create an account</b></div>
+    </li>
+  </ul>
+</ul>
+<style *ngIf="!isAuthenticated">
+  header,
+  main,
+  footer {
+    padding: 0;
+  }
+</style>
+<header>
+
+    <ul class="dropdown-content" id="user_dropdown">
+      <li><a class="indigo-text" href="#!">Profile</a></li>
+      <li><a class="indigo-text" href="#!">Logout</a></li>
+    </ul>
+
+    <nav class="indigo" role="navigation">
+      <div class="nav-wrapper">
+        <a data-activates="slide-out" class="button-collapse show-on-large" href="#!"><img style="margin-left:
+      5px; width: 70px; height: 70px;" src="http://kplod.com/wp-content/uploads/2016/04/chushki.png"/></a>
+
+        <a href="#" class="right hide-on-med-and-down" style="padding-right: 10px">
+          Logout
+        </a>
+
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      </div>
+    </nav>
+  </header>
+
