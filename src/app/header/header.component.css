@@ -1,0 +1,17 @@
+a {
+  cursor: pointer;
+}
+
+span {
+  color: red;
+}
+
+.mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 992px) {
+  .mobile {
+    display: block;
+  }
+}

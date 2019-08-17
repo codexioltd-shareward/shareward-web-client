@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Account} from '../models/Account';
 
 @Component({
   selector: 'app-accounts',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./accounts.component.css']
 })
 export class AccountsComponent implements OnInit {
+  columns: number;
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
+    this.columns = (window.innerWidth <= 992) ? 1 : 2;
+  }
+
+  onResize(event) {
+    this.columns = (event.target.innerWidth <= 992) ? 1 : 2;
   }
 
 }

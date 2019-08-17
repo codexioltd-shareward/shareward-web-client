@@ -1,0 +1,14 @@
+.card {
+  width: 60%;
+  margin: 5% auto;
+  height: 60%;
+  padding-bottom: 1em;
+}
+
+.row {
+  text-align: center;
+}
+
+.container {
+  width: 90%;
+}

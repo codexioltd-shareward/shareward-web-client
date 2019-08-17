@@ -1,19 +1,23 @@
-<form>
+<form (submit)="register($event)">
   <h4>Register</h4>
   <div class="form-group">
     <label for="exampleInputEmail1" class="bmd-label-floating">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1">
+    <input type="email" class="form-control" id="exampleInputEmail1" name="email" [(ngModel)]="model.email">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1" class="bmd-label-floating">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input type="text" class="form-control" id="exampleInputFullName" name="fullName" [(ngModel)]="model.fullName">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1" class="bmd-label-floating">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="model.password">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1" class="bmd-label-floating">Repeat Password</label>
-    <input type="password" class="form-control" id="exampleInputRepeatPassword">
+    <input type="password" class="form-control" id="exampleInputRepeatPassword" name="confirm" [(ngModel)]="model.confirm">
   </div>
   <div class="form-group">
     <p>Already have an account? <a href="">Sign in!</a></p>
   </div>
-  <button type="button" class="btn btn-raised btn-secondary">Register</button>
+  <button type="submit" class="btn btn-raised btn-secondary">Register</button>
 </form>

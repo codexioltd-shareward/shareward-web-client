@@ -9,6 +9,16 @@ import { AccountsComponent } from './accounts/accounts.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { InvitationsComponent } from './invitations/invitations.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
+import { PaymentRequestsComponent } from './payment-requests/payment-requests.component';
+import {FormsModule} from '@angular/forms';
+import {AuthentiationService} from './api/authentication.service';
+import {HttpClientModule} from '@angular/common/http';
+import {AccountService} from './api/account.service';
 
 @NgModule({
   declarations: [
@@ -18,13 +28,24 @@ import { CreateAccountComponent } from './create-account/create-account.componen
     AccountsComponent,
     LoginComponent,
     RegisterComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    InvitationsComponent,
+    AccountDetailsComponent,
+    PaymentRequestsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatGridListModule,
+    MatListModule,
+    MatButtonModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthentiationService,
+    AccountService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,12 +11,18 @@
   </li>
 
   <ul class="collapsible" data-collapsible="accordion">
-    <li id="dash_categories">
-      <div id="dash_categories_header" class="collapsible-header waves-effect"><b>My Accounts</b></div>
+    <li>
+      <a class="collapsible-header waves-effect" [routerLink]="['accounts']"><b>Accounts</b></a>
     </li>
 
-    <li id="dash_brands">
-      <div id="dash_brands_header" class="collapsible-header waves-effect"><b>Create an account</b></div>
+    <li>
+      <a class="collapsible-header waves-effect" [routerLink]="['create-account']"><b>Create an account</b></a>
+    </li>
+
+    <li>
+      <a class="collapsible-header waves-effect" [routerLink]="['invitations']"><b>My invitations</b>
+      <span *ngIf="invitationsCount">    {{invitationsCount}}</span>
+      </a>
     </li>
   </ul>
 </ul>
@@ -36,10 +42,14 @@
 
     <nav class="indigo" role="navigation">
       <div class="nav-wrapper">
-        <a data-activates="slide-out" class="button-collapse show-on-large" href="#!"><img style="margin-left:
-      5px; width: 70px; height: 70px;" src="http://kplod.com/wp-content/uploads/2016/04/chushki.png"/></a>
+        <div class="mobile">
+        <a data-activates="slide-out" class="button-collapse show-on-large">My accounts</a>
+        <a data-activates="slide-out" class="button-collapse show-on-large">Add an account</a>
+        <a data-activates="slide-out" class="button-collapse show-on-large">Invitations</a>
 
-        <a href="#" class="right hide-on-med-and-down" style="padding-right: 10px">
+        </div>
+
+        <a (click)="logout()" class="right hide-on-med-and-down" style="padding-right: 10px" *ngIf="isAuthenticated">
           Logout
         </a>
 
