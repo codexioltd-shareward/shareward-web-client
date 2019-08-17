@@ -6,7 +6,7 @@ export class AuthentiationService {
   constructor(
     private http: HttpClient,
   ) {
-    this.url = 'http://localhost:8080';
+    this.url = '/api';
   }
 
   login(body) {
@@ -20,5 +20,14 @@ export class AuthentiationService {
   saveData(token, id) {
     localStorage.setItem('jwtToken', token);
     localStorage.setItem('id', id);
+  }
+
+  myInfo() {
+    return this.http.get(this.url + '/users/me',
+      {
+        headers: {
+          Authorization: localStorage.getItem('jwtToken')
+        }
+      });
   }
 }

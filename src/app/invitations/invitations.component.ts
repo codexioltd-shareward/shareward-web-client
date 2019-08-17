@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AccountService} from '../api/account.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-invitations',
@@ -7,9 +9,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvitationsComponent implements OnInit {
 
-  constructor() { }
+  invitations: any = [];
+  accepted: any = [];
+  rejected: any = [];
 
-  ngOnInit() {
+  constructor(
+    private accountService: AccountService,
+    private router: Router
+  ) {
   }
 
+  ngOnInit() {
+    this.accountService.getPendingInvitations().subscribe(res => {
+      this.invitations = res.filter(i => !i.acceptedOn && !i.rejectedOn);
+      this.accepted = res.filter(i => i.acceptedOn);
+      this.rejected = res.filter(i => i.rejectedOn);
+    });
+  }
+
+  accept(invitation) {
+    this.accountService.answerInvitation(invitation.account.id, invitation.id, {hasAccepted: true})
+      .subscribe(res => {
+        this.router.navigate(['account-details/' + invitation.account.id]);
+        window.location.reload();
+      });
+  }
+
+  reject(invitation) {
+    this.accountService.answerInvitation(invitation.account.id, invitation.id, {hasAccepted: true})
+      .subscribe(res => {
+        this.router.navigate(['account-details/' + invitation.account.id]);
+        window.location.reload();
+      });
+  }
 }

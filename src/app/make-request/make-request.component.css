@@ -1,0 +1,40 @@
+.card {
+  width: 60%;
+  margin: 5% auto;
+  height: 60%;
+}
+
+a {
+  padding: 0 3em;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #3F51B5;
+}
+
+.card {
+  width: 80%;
+  margin: 5% auto;
+  height: 60%;
+  text-align: center;
+}
+
+h6 {
+  text-align: center;
+}
+
+button {
+  margin: 1em;
+}
+
+li {
+  width: 100%;
+  cursor: pointer;
+  padding-bottom: 1em;
+  text-align: center;
+}
+
+li:hover {
+  background-color: #E8EAED;
+}

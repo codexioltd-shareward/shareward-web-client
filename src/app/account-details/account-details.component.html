@@ -1,14 +1,12 @@
 <main>
   <div style="padding: 35px;" align="center" class="card">
-    <h4>Account name</h4>
-    <h5>Amount: 1000$</h5>
+    <h4>{{account.name}}</h4>
+    <h5>Amount: {{account.sum}}</h5>
     <div class="members">
-        <h6>Member</h6>
-        <h6>Member </h6>
-        <h6>Adasdada</h6>
+        <h6 *ngFor="let user of account.users">{{user.fullName}}, {{user.email}}</h6>
       </div>
-    <button mat-raised-button color="primary" [routerLink]="['add-money']">Add money</button>
-    <button mat-raised-button color="primary" [routerLink]="['invite']">Invite people</button>
-    <button mat-raised-button color="primary" [routerLink]="['payment']">Payment Request</button>
+    <button mat-raised-button color="primary" [routerLink]="['/deposit/', account.id]">Deposit</button>
+    <button mat-raised-button color="primary" [routerLink]="['/invite-users/', account.id]">Invite people</button>
+    <button mat-raised-button color="primary" [routerLink]="['/payment-request/', account.id]">Payment Request</button>
   </div>
 </main>

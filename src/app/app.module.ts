@@ -19,6 +19,11 @@ import {FormsModule} from '@angular/forms';
 import {AuthentiationService} from './api/authentication.service';
 import {HttpClientModule} from '@angular/common/http';
 import {AccountService} from './api/account.service';
+import { MakeRequestComponent } from './make-request/make-request.component';
+import {PaymentService} from './api/payment.service';
+import { InviteUsersComponent } from './invite-users/invite-users.component';
+import { AddMoneyComponent } from './add-money/add-money.component';
+import { AddFundsComponent } from './add-funds/add-funds.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +36,11 @@ import {AccountService} from './api/account.service';
     CreateAccountComponent,
     InvitationsComponent,
     AccountDetailsComponent,
-    PaymentRequestsComponent
+    PaymentRequestsComponent,
+    MakeRequestComponent,
+    InviteUsersComponent,
+    AddMoneyComponent,
+    AddFundsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +53,8 @@ import {AccountService} from './api/account.service';
   ],
   providers: [
     AuthentiationService,
-    AccountService
+    AccountService,
+    PaymentService
   ],
   bootstrap: [AppComponent]
 })

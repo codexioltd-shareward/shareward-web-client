@@ -25,7 +25,7 @@ export class CreateAccountComponent implements OnInit {
   create($event) {
     this.accountService.create(this.model)
       .subscribe((res) => {
-        this.router.navigate(['/accounts']);
+        window.location.href = '/accounts';
       });
   }
 

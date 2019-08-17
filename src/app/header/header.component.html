@@ -4,26 +4,37 @@
       <div class="row">
 
         <p style="margin-top: -13%;">
-          Usernameee
         </p>
+        <span class="info">{{username}}</span>
+        <br>
+        <span class="info">$ {{money}}</span>
       </div>
     </div>
   </li>
 
   <ul class="collapsible" data-collapsible="accordion">
     <li>
-      <a class="collapsible-header waves-effect" [routerLink]="['accounts']"><b>Accounts</b></a>
+      <a class="collapsible-header waves-effect" [routerLink]="['/accounts']"><b>Accounts</b></a>
     </li>
 
     <li>
-      <a class="collapsible-header waves-effect" [routerLink]="['create-account']"><b>Create an account</b></a>
+      <a class="collapsible-header waves-effect" [routerLink]="['/create-account']"><b>Create an account</b></a>
     </li>
 
     <li>
-      <a class="collapsible-header waves-effect" [routerLink]="['invitations']"><b>My invitations</b>
-      <span *ngIf="invitationsCount">    {{invitationsCount}}</span>
+      <a class="collapsible-header waves-effect" [routerLink]="['/invitations']"><b>My invitations</b>
+        <span *ngIf="invitationsCount">    {{invitationsCount}}</span>
       </a>
     </li>
+
+    <li>
+      <a class="collapsible-header waves-effect" [routerLink]="['/receivedRequests']"><b>Pending payments</b></a>
+    </li>
+
+    <li>
+      <a class="collapsible-header waves-effect" [routerLink]="['/add-funds']"><b>Add Funds</b></a>
+    </li>
+
   </ul>
 </ul>
 <style *ngIf="!isAuthenticated">
@@ -35,26 +46,28 @@
 </style>
 <header>
 
-    <ul class="dropdown-content" id="user_dropdown">
-      <li><a class="indigo-text" href="#!">Profile</a></li>
-      <li><a class="indigo-text" href="#!">Logout</a></li>
-    </ul>
+  <ul class="dropdown-content" id="user_dropdown">
+    <li><a class="indigo-text" href="#!">Profile</a></li>
+    <li><a class="indigo-text" href="#!">Logout</a></li>
+  </ul>
 
-    <nav class="indigo" role="navigation">
-      <div class="nav-wrapper">
-        <div class="mobile">
-        <a data-activates="slide-out" class="button-collapse show-on-large">My accounts</a>
-        <a data-activates="slide-out" class="button-collapse show-on-large">Add an account</a>
-        <a data-activates="slide-out" class="button-collapse show-on-large">Invitations</a>
+  <nav class="indigo" role="navigation">
+    <div class="nav-wrapper">
+      <div class="mobile">
+        <a data-activates="slide-out" class="button-collapse show-on-large" [routerLink]="['/accounts']">My accounts</a>
+        <a data-activates="slide-out" class="button-collapse show-on-large" [routerLink]="['/create-account']">Add an account</a>
+        <a data-activates="slide-out" class="button-collapse show-on-large" [routerLink]="['/invitations']">Invitations</a>
+        <a data-activates="slide-out" class="button-collapse show-on-large" [routerLink]="['/receivedRequests']">Pending
+          payments</a>
 
-        </div>
-
-        <a (click)="logout()" class="right hide-on-med-and-down" style="padding-right: 10px" *ngIf="isAuthenticated">
-          Logout
-        </a>
-
-        <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       </div>
-    </nav>
-  </header>
+
+      <a (click)="logout()" class="right hide-on-med-and-down" style="padding-right: 10px" *ngIf="isAuthenticated">
+        Logout
+      </a>
+
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    </div>
+  </nav>
+</header>
 

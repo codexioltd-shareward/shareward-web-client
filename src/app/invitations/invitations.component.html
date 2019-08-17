@@ -1,10 +1,31 @@
 <main>
-<div style="padding: 35px;" align="center" class="card">
-  <h5>Invitations</h5>
-  <div class="members">
-    <h6>Member</h6>
-    <h6>Member </h6>
-    <h6>Adasdada</h6>
+  <div style="padding: 35px;" align="center" class="card">
+    <h5>Invitations</h5>
+    <ul>
+      <li *ngFor="let invitation of invitations">
+      <span *ngIf="!invitation.acceptedOn && !invitation.rejectedOn">
+      {{invitation.account.name}} (by: {{invitation.inviter.fullName}}) <a (click)="accept(invitation)">Accept</a> <a
+        (click)="reject(invitation)">Reject</a>
+        </span>
+      </li>
+    </ul>
+
+    <hr/>
+
+    <h5 *ngIf="accepted.length">Accepted</h5>
+    <ul>
+      <li *ngFor="let invitation of accepted">
+      {{invitation.account.name}} (by: {{invitation.inviter.fullName}}) (Accepted on: {{invitation.acceptedOn | date}})
+      </li>
+    </ul>
+
+    <hr/>
+
+    <h5 *ngIf="rejected.length">Rejected</h5>
+    <ul>
+      <li *ngFor="let invitation of rejected">
+        {{invitation.account.name}} (by: {{invitation.inviter.fullName}}) (Rejected on: {{invitation.rejectedOn | date}})
+      </li>
+    </ul>
   </div>
-</div>
 </main>

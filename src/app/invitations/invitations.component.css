@@ -4,11 +4,12 @@
   height: 60%;
 }
 
-mat-list {
-
+a {
+  padding: 0 3em;
+  cursor: pointer;
 }
 
-button {
-  margin: 0.5em;
+a:hover {
+  color: #3F51B5;
 }
 

@@ -27,7 +27,8 @@ export class RegisterComponent implements OnInit {
       .subscribe((regres) => {
         this.authenticationService.login({email: this.model.email, password: this.model.password})
           .subscribe((logres) => {
-            console.log(logres);
+            this.authenticationService.saveData(logres.headers.get('Authorization'), logres.body.userId);
+            this.router.navigate(['/accounts']);
           });
       });
   }

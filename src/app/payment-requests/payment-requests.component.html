@@ -1,1 +1,21 @@
-<p>payment-requests works!</p>
+<main>
+  <div style="padding: 35px;" align="center" class="card">
+    <h5>Pending payments</h5>
+    <mat-grid-list [cols]="columns" rowHeight="2:2.5" (window:resize)="onResize($event)">
+      <mat-grid-tile *ngFor="let request of requests">
+        <a class="grey lighten-3 col s5 waves-effect container">
+            <span class="indigo-text text-lighten-1">
+              <p>To: {{request.receiver.name}}</p>
+              <p>Amount: ${{request.amount}}</p>
+              <p>Accepted: {{request.acceptedUsers.length}} (
+                {{(request.acceptedUsers.length/request.sender.users.length)*100}}%)</p>
+              <p>Rejected: {{request.rejectedUsers.length}} ( {{(request.rejectedUsers.length/request.sender.users.length)*100}}
+                %)</p>
+              <button mat-button color="accent" (click)="accept(request)">Accept</button>
+              <button mat-button color="accent" (click)="reject(request)">Reject</button>
+            </span>
+        </a>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</main>

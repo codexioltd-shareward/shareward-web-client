@@ -1,0 +1,14 @@
+<main>
+  <div style="padding: 35px;" align="center" class="card">
+    <div class="form-group">
+      <input
+        (keydown)="doSearch($event.target.value)">
+
+      <ul *ngIf="results">
+        <li (click)="invite(result.id)" *ngFor="let result of results">
+          {{ result.fullName }} ( {{result.email}} )
+        </li>
+      </ul>
+    </div>
+  </div>
+</main>

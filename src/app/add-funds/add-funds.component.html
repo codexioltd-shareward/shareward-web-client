@@ -1,0 +1,21 @@
+<main>
+  <div style="padding: 35px;" align="center" class="card">
+    <div class="form-group">
+      <input placeholder="Amount" type="number" [(ngModel)]="model.amount"/>
+      <input placeholder="Card number" type="text" [(ngModel)]="model.cardNum"/>
+      <input placeholder="Expires on (month)" type="text" [(ngModel)]="model.expiryMonth"/>
+      <input placeholder="Expires on (year)" type="text" [(ngModel)]="model.expiryYear"/>
+      <input placeholder="CVV" type="number" [(ngModel)]="model.cvv"/>
+      <input placeholder="First name" type="text" [(ngModel)]="model.firstName"/>
+      <input placeholder="Last name" type="text" [(ngModel)]="model.lastName"/>
+      <input placeholder="Email" type="email" [(ngModel)]="model.email"/>
+      <input placeholder="Billing address - street" type="text" [(ngModel)]="model.billingStreet"/>
+      <input placeholder="Billing address - city" type="text" [(ngModel)]="model.billingCity"/>
+      <input placeholder="Billing address - state" type="text" [(ngModel)]="model.billingState"/>
+      <input placeholder="Billing address - country" type="text" [(ngModel)]="model.billingCountryCode"/>
+      <input placeholder="Billing address - Zip code" type="text" [(ngModel)]="model.billingZipCode"/>
+
+      <button mat-button color="primary" (click)="pay()">Pay</button>
+    </div>
+  </div>
+</main>
